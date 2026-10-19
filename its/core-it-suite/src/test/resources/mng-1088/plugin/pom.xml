@@ -31,6 +31,8 @@ under the License.
 
   <properties>
     <maven.test.skip>true</maven.test.skip>
+    <maven.version>3.8.6</maven.version>
+    <mavenPluginPluginVersion>4.0.0-beta-1</mavenPluginPluginVersion>
   </properties>
 
   <dependencies>
@@ -53,7 +55,7 @@ under the License.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>4.0.0-beta-1</version>
+        <version>${mavenPluginPluginVersion}</version>
         <configuration>
           <goalPrefix>coreit</goalPrefix>
         </configuration>
