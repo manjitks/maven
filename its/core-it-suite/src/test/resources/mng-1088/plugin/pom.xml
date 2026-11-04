@@ -31,7 +31,7 @@ under the License.
 
   <properties>
     <maven.test.skip>true</maven.test.skip>
-    <mavenPluginPluginVersion>4.0.0-beta-2</mavenPluginPluginVersion>
+    <mavenPluginPluginVersion>4.0.0-beta-3</mavenPluginPluginVersion>
   </properties>
 
   <dependencies>
