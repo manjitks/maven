@@ -21,8 +21,8 @@ package org.apache.maven.plugin.coreit;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
+import org.apache.maven.api.Project;
 import org.apache.maven.api.di.Inject;
 import org.apache.maven.api.plugin.Log;
 import org.apache.maven.api.plugin.MojoException;
@@ -43,8 +43,11 @@ public class TouchMojo implements org.apache.maven.api.plugin.Mojo {
     @Inject
     private Log log;
 
+    @Inject
+    private Project project;
+
     /**
-     * The path to the output file, relative to the working directory.
+     * The path to the output file, relative to the project base directory.
      */
     @Parameter(property = "touch.file", defaultValue = "target/touch.txt")
     private String file;
@@ -56,7 +59,7 @@ public class TouchMojo implements org.apache.maven.api.plugin.Mojo {
      */
     @Override
     public void execute() {
-        Path path = Paths.get(file);
+        Path path = project.getBasedir().resolve(file);
         log.info("[MAVEN-CORE-IT-LOG] Creating output file: " + path.toAbsolutePath());
 
         try {
